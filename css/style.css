@@ -16,7 +16,7 @@ h1 {
     position: absolute;
     background-image: url("../images/t-rex-background.png");
     height: 200px;
-    width: 100%;
+    width: calc(100% - 10px);   /* Why do I need to subtract 10px to get rid of the horizontal window scroller? Is there a better fix than this? */
     animation: slideright 600s infinite linear;
     bottom: 45vh;
 }
