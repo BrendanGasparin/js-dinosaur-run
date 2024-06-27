@@ -4,3 +4,11 @@
     height: 200px;
     width: 100%;
 }
+
+.dino {
+    position: absolute;
+    bottom: 0;
+    background-image: url("../images/t-rex.png");
+    height: 60px;
+    width: 60px;
+}
