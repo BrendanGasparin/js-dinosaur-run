@@ -32,7 +32,7 @@ function main() {
                 });
             }
             //move up
-            position += 16;
+            position += 30;
             position *= gravity;    // slow down over time
             count++;
             dino.style.bottom = position + 'px';
