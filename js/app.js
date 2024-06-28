@@ -31,6 +31,7 @@ function main() {
 
     function generateObstacles() {
         const obstacle = document.createElement('div');
+        const collisionDistance = 50;
         let obstaclePosition = window.innerWidth;
         obstacle.classList.add('obstacle');
         grid.appendChild(obstacle);
@@ -38,7 +39,7 @@ function main() {
 
         let timerId = setInterval(function() {
             // Collision detector
-            if (obstaclePosition < 50 && obstaclePosition > -50 && position < 50) {
+            if (obstaclePosition < collisionDistance && obstaclePosition > -collisionDistance && position < collisionDistance) {
                 clearInterval(timerId);
                 gameOver();
             }
