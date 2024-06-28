@@ -1,6 +1,7 @@
 function main() {
     const dino = document.querySelector('.dino');
     const grid = document.querySelector('.grid');
+    let speed = 100;
     let position = 5;
     let gravity = 0.9;
     let isJumping = false;
@@ -21,10 +22,10 @@ function main() {
         grid.appendChild(obstacle);
         obstacle.style.left = obstaclePosition + 'px';
 
-        /* let timerId = setInterval(function() {
+        let timerId = setInterval(function() {
             obstaclePosition -= 10;
             obstacle.style.left = obstaclePosition + 'px';
-        }); */
+        }, speed); // milliseconds
     }
     
     function jump() {
@@ -54,7 +55,7 @@ function main() {
             position *= gravity;    // slow down over time
             count++;
             dino.style.bottom = position + 'px';
-        }, 20); // 20ms
+        }, speed); // milliseconds
     }
 
     document.addEventListener('keyup', control);
