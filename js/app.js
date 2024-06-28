@@ -87,7 +87,7 @@ function main() {
         }, speed); // milliseconds
     }
 
-    document.addEventListener('keyup', control);
+    document.addEventListener('keydown', control);
 }
 
 document.addEventListener('DOMContentLoaded', main);
