@@ -6,4 +6,4 @@ Based on [Ania Kubow](https://github.com/kubowania/)'s [YouTube tutorial](https:
 
 I've modified the physics and game speed and intend to modify the game more in the future.  
 
-If you want to play then it is live [here](https://brendangasparin.github.io/js-dinosaur-game/).
+If you want to play then it is live [here](https://brendangasparin.github.io/js-dinosaur-run/).
