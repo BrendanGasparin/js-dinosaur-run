@@ -29,6 +29,8 @@ function main() {
                     position -= 5;
                     count--;
                     position *= gravity;
+                    if (position < 5)
+                        position = 5;
                     dino.style.bottom = position + 'px';
                 });
             }
