@@ -2,7 +2,7 @@ function main() {
     const dino = document.querySelector('.dino');
     const grid = document.querySelector('.grid');
     const alert = document.querySelector('#alert');
-    let speed = 100;
+    let speed = 60;
     let position = 5;
     let gravity = 0.9;
     let isJumping = false;
