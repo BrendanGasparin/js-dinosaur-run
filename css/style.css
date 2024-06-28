@@ -24,6 +24,7 @@ h1 {
     width: 99%;   /* Why do I need to set width to 99% to get rid of the horizontal window scroller? Is there a better fix than this? */
     animation: slideright 600s infinite linear;
     bottom: 45vh;
+    overflow: hidden;
 }
 
 .dino {

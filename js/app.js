@@ -16,10 +16,15 @@ function main() {
 
     function generateObstacles() {
         const obstacle = document.createElement('div');
-        let obstaclePosition = 1000;
+        let obstaclePosition = window.innerWidth;
         obstacle.classList.add('obstacle');
         grid.appendChild(obstacle);
         obstacle.style.left = obstaclePosition + 'px';
+
+        /* let timerId = setInterval(function() {
+            obstaclePosition -= 10;
+            obstacle.style.left = obstaclePosition + 'px';
+        }); */
     }
     
     function jump() {
