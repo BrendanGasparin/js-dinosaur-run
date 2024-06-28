@@ -18,7 +18,7 @@ function main() {
 
         let timerId = setInterval(function() {
             // Move down
-            if (count === 15) {
+            if (count === 12) {
                 clearInterval(timerId);
                 let downTimerId = setInterval(function() {
                     if (count === 0) {
@@ -32,7 +32,7 @@ function main() {
                 });
             }
             //move up
-            position += 30;
+            position += 24;
             position *= gravity;    // slow down over time
             count++;
             dino.style.bottom = position + 'px';
