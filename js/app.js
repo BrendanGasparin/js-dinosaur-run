@@ -1,15 +1,25 @@
 function main() {
     const dino = document.querySelector('.dino');
     const grid = document.querySelector('.grid');
-    let position = 0;
+    let position = 5;
     let gravity = 0.9;
     let isJumping = false;
+
+    generateObstacles();
 
     function control(e) {
         if (e.code === "Space") {
             if (!isJumping)
                 jump();
         }
+    }
+
+    function generateObstacles() {
+        const obstacle = document.createElement('div');
+        let obstaclePosition = 1000;
+        obstacle.classList.add('obstacle');
+        grid.appendChild(obstacle);
+        obstacle.style.left = obstaclePosition + 'px';
     }
     
     function jump() {
