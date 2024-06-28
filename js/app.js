@@ -20,10 +20,11 @@ function main() {
     function gameOver() {
         isGameOver = true;
 
+        alert.innerHTML = 'Game Over';
+
         // remove all children
         while (grid.firstChild) {
                 grid.removeChild(grid.lastChild);
-                alert.innerHTML = 'Game Over';
         }
         document.querySelector('#desert').style.animationPlayState = 'paused';
     }
@@ -36,7 +37,8 @@ function main() {
         obstacle.style.left = obstaclePosition + 'px';
 
         let timerId = setInterval(function() {
-            if (obstaclePosition < -60) {
+            // Collision detector
+            if (obstaclePosition < 50 && obstaclePosition > -50 && position < 50) {
                 clearInterval(timerId);
                 gameOver();
             }
@@ -47,31 +49,32 @@ function main() {
     }
     
     function jump() {
-        let count = 0;
+        //let count = 0;
 
         isJumping = true;
 
         let timerId = setInterval(function() {
             // Move down
-            if (count === 10) {
+            if (position >= 120) {
                 clearInterval(timerId);
                 let downTimerId = setInterval(function() {
-                    if (count === 0) {
+                    if (position <= 5) {
                         clearInterval(downTimerId);
                         isJumping = false;
+                        //count = 1;
                     }
                     position -= 5;
-                    count--;
-                    position *= gravity;
                     if (position < 5)
                         position = 5;
+                    //count--;
+                    position *= gravity;
                     dino.style.bottom = position + 'px';
-                });
+                }, speed);
             }
             //move up
             position += 20;
             position *= gravity;    // slow down over time
-            count++;
+            //count++;
             dino.style.bottom = position + 'px';
         }, speed); // milliseconds
     }
