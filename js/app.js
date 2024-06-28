@@ -1,10 +1,12 @@
 function main() {
     const dino = document.querySelector('.dino');
     const grid = document.querySelector('.grid');
+    const alert = document.querySelector('#alert');
     let speed = 100;
     let position = 5;
     let gravity = 0.9;
     let isJumping = false;
+    let isGameOver = false;
 
     generateObstacles();
 
@@ -23,6 +25,17 @@ function main() {
         obstacle.style.left = obstaclePosition + 'px';
 
         let timerId = setInterval(function() {
+            if (obstaclePosition < -60) {
+                clearInterval(timerId);
+                isGameOver = true;
+
+                // remove all children
+                while (grid.firstChild) {
+                        grid.removeChild(grid.lastChild);
+                        alert.innerHTML = 'Game Over';
+                }
+            }
+
             obstaclePosition -= 10;
             obstacle.style.left = obstaclePosition + 'px';
         }, speed); // milliseconds
