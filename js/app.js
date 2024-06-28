@@ -46,9 +46,9 @@ function main() {
                     gameOver();
                 }
     
-                obstaclePosition -= 10;
+                obstaclePosition -= 1;
                 obstacle.style.left = obstaclePosition + 'px';
-            }, speed); // milliseconds
+            }, speed / 10); // milliseconds
     
             // Set a timer to generate the next obstacle
             setTimeout(generateObstacles, randomTime);
