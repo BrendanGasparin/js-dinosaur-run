@@ -28,8 +28,8 @@ h1 {
 
 .dino {
     position: absolute;
-    left: 3px;
-    bottom: 3px;
+    left: 5px;
+    bottom: 5px;
     background-image: url("../images/t-rex.png");
     height: 60px;
     width: 60px;
