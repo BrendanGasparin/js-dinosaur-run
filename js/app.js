@@ -17,6 +17,17 @@ function main() {
         }
     }
 
+    function gameOver() {
+        isGameOver = true;
+
+        // remove all children
+        while (grid.firstChild) {
+                grid.removeChild(grid.lastChild);
+                alert.innerHTML = 'Game Over';
+        }
+        document.querySelector('#desert').style.animationPlayState = 'paused';
+    }
+
     function generateObstacles() {
         const obstacle = document.createElement('div');
         let obstaclePosition = window.innerWidth;
@@ -27,13 +38,7 @@ function main() {
         let timerId = setInterval(function() {
             if (obstaclePosition < -60) {
                 clearInterval(timerId);
-                isGameOver = true;
-
-                // remove all children
-                while (grid.firstChild) {
-                        grid.removeChild(grid.lastChild);
-                        alert.innerHTML = 'Game Over';
-                }
+                gameOver();
             }
 
             obstaclePosition -= 10;
