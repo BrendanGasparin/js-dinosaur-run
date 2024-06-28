@@ -7,7 +7,8 @@ function main() {
 
     function control(e) {
         if (e.code === "Space") {
-            jump();
+            if (!isJumping)
+                jump();
         }
     }
     
