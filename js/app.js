@@ -2,6 +2,7 @@ function main() {
     const dino = document.querySelector('.dino');
     const grid = document.querySelector('.grid');
     const alert = document.querySelector('#alert');
+    let randomTime = Math.random() * 3000 + 3000;
     let speed = 60;
     let position = 5;
     let gravity = 0.9;
@@ -30,23 +31,29 @@ function main() {
     }
 
     function generateObstacles() {
-        const obstacle = document.createElement('div');
-        const collisionDistance = 50;
-        let obstaclePosition = window.innerWidth;
-        obstacle.classList.add('obstacle');
-        grid.appendChild(obstacle);
-        obstacle.style.left = obstaclePosition + 'px';
-
-        let timerId = setInterval(function() {
-            // Collision detector
-            if (obstaclePosition < collisionDistance && obstaclePosition > -collisionDistance && position < collisionDistance) {
-                clearInterval(timerId);
-                gameOver();
-            }
-
-            obstaclePosition -= 10;
+        if (isGameOver === false) {
+            const obstacle = document.createElement('div');
+            const collisionDistance = 50;
+            let obstaclePosition = window.innerWidth;
+            obstacle.classList.add('obstacle');
+            grid.appendChild(obstacle);
             obstacle.style.left = obstaclePosition + 'px';
-        }, speed); // milliseconds
+    
+            let timerId = setInterval(function() {
+                // Collision detector
+                if (obstaclePosition < collisionDistance && obstaclePosition > -collisionDistance && position < collisionDistance) {
+                    clearInterval(timerId);
+                    gameOver();
+                }
+    
+                obstaclePosition -= 10;
+                obstacle.style.left = obstaclePosition + 'px';
+            }, speed); // milliseconds
+    
+            // Set a timer to generate the next obstacle
+            setTimeout(generateObstacles, randomTime);
+            randomTime = Math.random() * 3000 + 3000;
+        }
     }
     
     function jump() {
