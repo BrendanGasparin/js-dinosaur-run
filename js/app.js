@@ -8,12 +8,17 @@ function main() {
     let gravity = 0.9;
     let isJumping = false;
     let isGameOver = false;
+    let startScreen = true;
 
     document.addEventListener('keydown', control);
-    generateObstacles();
+    grid.removeChild(dino);
+    startMenu();
 
     function control(e) {
-        if (e.code === "Space") {
+        if (startScreen === true && e.code === 'Space') {
+            startGame();
+        }
+        else if (e.code === 'Space') {
             if (!isJumping)
                 jump();
         }
@@ -32,7 +37,7 @@ function main() {
     }
 
     function generateObstacles() {
-        if (isGameOver === false) {
+        if (isGameOver === false && startScreen === false) {
             const obstacle = document.createElement('div');
             const collisionDistance = 50;
             let obstaclePosition = window.innerWidth;
@@ -86,6 +91,19 @@ function main() {
             //count++;
             dino.style.bottom = position + 'px';
         }, speed); // milliseconds
+    }
+
+    function startGame() {
+        alert.innerHTML = '';
+        document.querySelector('#desert').style.animationPlayState = 'running';
+        grid.appendChild(dino);
+        startScreen = false;
+        generateObstacles();
+    }
+
+    function startMenu() {
+        alert.innerHTML = 'Press SPACE to Start';
+        document.querySelector('#desert').style.animationPlayState = 'paused';
     }
 }
 
