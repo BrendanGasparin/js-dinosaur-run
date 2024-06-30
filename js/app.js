@@ -9,6 +9,7 @@ function main() {
     let isJumping = false;
     let isGameOver = false;
 
+    document.addEventListener('keydown', control);
     generateObstacles();
 
     function control(e) {
@@ -86,8 +87,6 @@ function main() {
             dino.style.bottom = position + 'px';
         }, speed); // milliseconds
     }
-
-    document.addEventListener('keydown', control);
 }
 
 document.addEventListener('DOMContentLoaded', main);
