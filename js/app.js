@@ -14,6 +14,7 @@ function main() {
     grid.removeChild(dino);
     startMenu();
 
+    // Detect space bar presses
     function control(e) {
         if (startScreen === true && e.code === 'Space') {
             startGame();
@@ -24,6 +25,7 @@ function main() {
         }
     }
 
+    // Dinosaur has died - end the game
     function gameOver() {
         isGameOver = true;
 
@@ -36,6 +38,7 @@ function main() {
         document.querySelector('#desert').style.animationPlayState = 'paused';
     }
 
+    // Generate obstacles and random intervals and move them to the left
     function generateObstacles() {
         if (isGameOver === false && startScreen === false) {
             const obstacle = document.createElement('div');
@@ -61,10 +64,9 @@ function main() {
             randomTime = Math.random() * 3000 + 3000;
         }
     }
-    
+   
+    // Dinosaur jumping
     function jump() {
-        //let count = 0;
-
         isJumping = true;
 
         let timerId = setInterval(function() {
@@ -75,12 +77,10 @@ function main() {
                     if (position <= 5) {
                         clearInterval(downTimerId);
                         isJumping = false;
-                        //count = 1;
                     }
                     position -= 5;
                     if (position < 5)
                         position = 5;
-                    //count--;
                     position *= gravity;
                     dino.style.bottom = position + 'px';
                 }, speed);
@@ -88,11 +88,11 @@ function main() {
             //move up
             position += 20;
             position *= gravity;    // slow down over time
-            //count++;
             dino.style.bottom = position + 'px';
         }, speed); // milliseconds
     }
 
+    // Start running the game
     function startGame() {
         alert.innerHTML = '';
         document.querySelector('#desert').style.animationPlayState = 'running';
@@ -101,6 +101,7 @@ function main() {
         generateObstacles();
     }
 
+    // Display the start menu
     function startMenu() {
         alert.innerHTML = 'Press SPACE to Start';
         document.querySelector('#desert').style.animationPlayState = 'paused';
